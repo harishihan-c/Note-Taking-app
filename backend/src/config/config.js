@@ -1,14 +1,12 @@
 import mongoose from "mongoose";
 
-export const connectionDB = async () => {
+export const connectDB = async () => {
   try {
-    await mongoose.connect(
-      "mongodb+srv://harishihan_db_user:3HOHoZ3X4dnh0BgT@cluster0.dnuxes9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-    );
+    await mongoose.connect(process.env.MONGO_URI);
 
     console.log("Database Connected Successfully");
   } catch {
-    console.error("Error to Connecting Database", error);
+    console.error.message("Error to Connecting Database", error.message);
     process.exit(1);
   }
 };
