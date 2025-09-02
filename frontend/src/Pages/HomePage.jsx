@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import toast from "react-hot-toast";
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
-  )
-}
+    <div>
+      <button onClick={() => toast.success("success")}>Click me</button>
+      HomePage
+    </div>
+  );
+};
 
-export default HomePage
+export default HomePage;
