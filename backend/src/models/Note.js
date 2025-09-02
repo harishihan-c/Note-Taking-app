@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const noteSchema = new mongoose.SchemaType(
+const noteSchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -14,6 +14,6 @@ const noteSchema = new mongoose.SchemaType(
   { timestamps: true }
 );
 
-const Note = mongoose.Model("Note", noteSchema);
+const Note = mongoose.model("Note", noteSchema);
 
 export default Note;
