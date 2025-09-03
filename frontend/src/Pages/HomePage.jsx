@@ -4,12 +4,10 @@ import toast from "react-hot-toast";
 const HomePage = () => {
   return (
     <div>
-      <button
-        onClick={() => toast.success("success")}
-        className="text-red-500 p-4"
-      >
-        Click me
-      </button>
+      <button className="btn btn-info">Info</button>
+      <button className="btn btn-success">Success</button>
+      <button className="btn btn-warning">Warning</button>
+      <button className="btn btn-error">Error</button>
       HomePage
     </div>
   );
