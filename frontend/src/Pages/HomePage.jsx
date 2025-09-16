@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import NavBar from "../Components/NavBar";
 import NoteCard from "../Components/NoteCard";
+import NotesNotFound from "../Components/NotesNotFound";
+
 
 const HomePage = () => {
   const [loading, setLoading] = useState(false);
@@ -36,10 +38,12 @@ const HomePage = () => {
           </div>
         )}
 
+        {notes.length == 0 && <NotesNotFound />}
+
         {notes.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {notes.map((note) => (
-              <NoteCard key={note.id} note={note} />
+              <NoteCard key={note.id} note={note} setNotes={setNotes}/>
             ))}
           </div>
         )}
