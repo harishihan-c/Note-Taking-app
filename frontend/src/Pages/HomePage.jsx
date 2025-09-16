@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import NavBar from "../Components/NavBar";
 import NoteCard from "../Components/NoteCard";
 import NotesNotFound from "../Components/NotesNotFound";
+import api from "../lib/axios";
 
 
 const HomePage = () => {
@@ -12,10 +13,9 @@ const HomePage = () => {
   useEffect(() => {
     const fetchNotes = async () => {
       try {
-        const res = await fetch("http://localhost:5001/api/notes");
-        const data = await res.json();
-        console.log(data);
-        setNotes(data);
+        const res = await api.get("/notes");
+        console.log(res.data);
+        setNotes(res.data);
       } catch (error) {
         console.error("Fetching Error", error);
         toast.error("Cannot load the notes");
